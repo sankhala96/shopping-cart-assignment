@@ -6,9 +6,13 @@
     border: none;
     padding: 0.75em;
     margin-bottom: 1.5em;
-    
+    display: flex;
 
     &:hover {
         cursor: pointer;
+    }
+
+    &--space-between {
+        justify-content: space-between;
     }
 }

@@ -32,9 +32,10 @@ function Header(props) {
   return (
     <header className="header">
       <img
-        src="public/static/images/logo.png"
+        src={Constants.UrlPublic + Constants.ImgLogo}
         alt="logo"
         className="header-logo"
+        onClick={() => props.history.push("/")}
       ></img>
       {(props.screenSize === Constants.ScreenLaptop ||
         props.screenSize === Constants.ScreenTablet) && (
@@ -69,7 +70,7 @@ function Header(props) {
             ))}
           </nav>
         )}
-        <CartButton cartItems={0} handleClick={props.handleClick} />
+        <CartButton cartItems={props.cartItems} handleClick={props.openCart} />
       </div>
     </header>
   );

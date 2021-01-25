@@ -1,0 +1,11 @@
+@import "../../global-styles.scss";
+
+.plp {
+    display: flex;
+}
+
+@media only screen and (max-width: $screen-tablet) {
+    .plp {
+        flex-direction: column;
+    }
+}

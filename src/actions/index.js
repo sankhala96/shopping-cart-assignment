@@ -20,6 +20,23 @@ export const setCategories = (cate) => {
     return { type: SET_CATEGORIES, payload: cate };
 }
 
+export const setProducts = (products) => {
+    return { type: SET_PRODUCTS, payload: products };
+}
+
+export const setSelectedCategory = (selectedCategory) => {
+    return { type: SET_SELECTED_CATEGORY, payload: selectedCategory }
+}
+
+export const setCart = () => {
+    return { type: SET_CART }
+}
+
+export const setCartStatus = (res, data) => {
+    res.data = data
+    return { type: SET_CART_STATUS, payload: res }
+}
+
 const config = {
     headers: {
         'Accept': 'application/json'
@@ -33,8 +50,38 @@ export const fetchData = (url) => {
             switch (url) {
                 case Constants.UrlBannersApi: dispatch(setBanners(response.data)); break;
                 case Constants.UrlCategoriesApi: dispatch(setCategories(response.data)); break;
-                // case Constants.UrlProductsApi: dispatch(setProducts(response.data)); break;
-                // case Constants.UrlCartApi: dispatch(setCart(response.data)); break;
+                case Constants.UrlProductsApi: dispatch(setProducts(response.data)); break;
+                case Constants.UrlCartApi: dispatch(setCart(response.data)); break;
+                default: break;
+            }
+        }
+        catch (error) {
+            throw (error)
+        }
+    }
+}
+
+export const postData = (url, data) => {
+    config.headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
+    return async (dispatch) => {
+        try{
+            const response = await axios.post(Constants.UrlServer + url, data, config);
+            switch (url) {
+                case Constants.UrlCartApi: dispatch(setCartStatus(response, data)); break;
+                default: break;
+            }
+        }
+        catch (error) {
+            throw (error)
+        }
+    }
+}
+
+export const saveData = (key, value) => {
+    return async (dispatch) => {
+        try {
+            switch(key) {
+                case Constants.UrlSelectedCategory: dispatch(setSelectedCategory(value)); break;
                 default: break;
             }
         }

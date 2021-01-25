@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
-import { SET_BANNERS, SET_CATEGORIES } from '../actions/types';
+import { SET_BANNERS, SET_CART, SET_CART_STATUS, SET_CATEGORIES, SET_PRODUCTS, SET_SELECTED_CATEGORY } from '../actions/types';
 
 const initialState = {
     categories: [],
     banners: [],
     products: [],
-    cart: [],
+    cart: {},
     registerStatus: '',
     loginStatus: '',
     cartStatus: '',
@@ -18,6 +18,14 @@ function setData(state = initialState, action) {
             return { ...state, banners: action.payload }
         case SET_CATEGORIES:
             return { ...state, categories: action.payload }
+        case SET_PRODUCTS:
+            return { ...state, products: action.payload }
+        case SET_SELECTED_CATEGORY:
+            return { ...state, selectedCategory: action.payload }
+        case SET_CART:
+            return state
+        case SET_CART_STATUS:
+            return { ...state, cartStatus: action.payload.response, cart: action.payload.data }
         default:
             return state
     }

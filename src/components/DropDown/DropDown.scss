@@ -1,0 +1,24 @@
+@import "../../global-styles.scss";
+
+.dropdown {
+    .button-pink {
+        margin: 0;
+        width: 100%;
+        text-align: left;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 5%;
+        background-color: $color-grey-1;
+
+        li {
+            border-bottom: 1px solid $color-grey-2;
+            padding: 2%;
+            font-size: 90%;
+            font-weight: 600;
+        }
+    }
+}

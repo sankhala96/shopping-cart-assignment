@@ -1,0 +1,48 @@
+@import '../../global-styles.scss';
+
+.cartitem {
+    display: flex;
+    background-color: $color-white-1;
+    margin: 2% 0 0 0;
+    padding: 2%;
+
+    &-image {
+        align-self: center;
+        margin-right: 2%;
+    }
+
+    &-content {
+        width: 100%;
+    }
+
+    &-heading {
+        font-weight: 700;
+        padding: 1% 0;
+    }
+
+    &-totalprice {
+        align-self: flex-end;
+    }
+
+    &-quantity {
+        button {
+            border-radius: 0.4em;
+            padding: 0.3em 0.8em;
+            margin-bottom: 0.5em;
+            display: inline-block;
+        
+            @media only screen and (min-width: $screen-laptop) {
+            border-radius: 50%;
+            padding: 0.3em 0.5em;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
+}
+        }
+    }
+
+    &-quantity, &-quantity > * {
+        margin-right: 1em;
+    }
+}

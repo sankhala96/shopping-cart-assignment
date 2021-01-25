@@ -1,0 +1,106 @@
+@import '../../global-styles.scss';
+
+.cart {
+    background-color: $color-grey-1;
+    padding-top: 1%;
+    
+
+    &-header {
+        display: flex;
+        justify-content: space-between;
+        padding: 2%;
+        background-color: $color-white-1;
+        color: $color-black-1;
+        font-weight: 600;
+
+        &-my-cart {
+            font-weight: 700;
+            padding-right: 5px;
+        }
+
+        &-total-item {
+            font-size: 70%;
+        }
+
+        &-icon-close {
+            cursor: pointer;
+        }
+    }
+
+    &-figure {
+        display: flex;
+        background-color: $color-white-1;
+        width: 92%;
+        margin: 2%;
+        padding: 2%;
+    }
+
+    &-content {
+        overflow-y: auto;
+        height: 70vh;
+
+        &-empty {
+            text-align: center;
+            background-color: $color-white-1;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+
+    &-content::-webkit-scrollbar {
+        display: none;
+    }
+
+    &-text-small {
+        margin-left: 2em;
+        font-size: 80%;
+        font-weight: 600;
+        align-self: center;
+    }
+
+    &-text-large {
+        font-weight: 700;
+    }
+
+    &-text-padding {
+        padding: 0 0.5em 0.5em 0.5em;
+    }
+
+    &-footer {
+        background-color: $color-white-1;
+        position: absolute;
+        bottom: 0;
+        width: -webkit-fill-available;
+        padding: 0.5em 1em;
+
+        &-border {
+            border-top: 2px solid $color-grey-2;
+        }
+    }
+
+    &-pinkbutton {
+        width: 100%;
+        border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+        -o-border-radius: 4px;
+    }
+
+    @media only screen and (min-width: $screen-laptop) {
+        position: absolute;
+        top: 12%;
+        right: 2.5%;
+        width: 45%;
+        z-index: 200;
+        min-height: 100vh;
+        padding: 0;
+
+        &-header {
+            background-color: $color-black-2;
+            color: $color-white-1;
+        }
+    }
+}

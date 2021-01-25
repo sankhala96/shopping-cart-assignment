@@ -13,6 +13,11 @@
     }
 
     &-dec {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
         p {
             font-size: 75%;
             font-weight: 600;

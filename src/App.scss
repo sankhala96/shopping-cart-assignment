@@ -11,7 +11,7 @@
     min-height: 88vh;
   }
 
-  @media only screen and (max-width: $screen-tablet) {
+  @media only screen and (max-width: $screen-laptop) {
     &-container {
       width: 100%;
     }

@@ -2,17 +2,12 @@
 
 .footer {
     background-color: $color-grey-1;
-    padding: 1% 0;
+    width: 100%;
+    padding: 1em 0;
     font-size: 70%;
     font-weight: 600;
-    
-    @media only screen and (max-width: $screen-laptop) {
-        text-align: center;
-        padding: 1% 10%;
-        font-size: 60%;
-    }
 
-    @media only screen and (min-width: $screen-tablet) {
-        width: 100%;
+    @media only screen and (min-width: $screen-laptop) {
+        text-align: left;
     }
 }

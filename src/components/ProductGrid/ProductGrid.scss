@@ -1,0 +1,11 @@
+@import "../../global-styles.scss";
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+
+    @media only screen and (max-width: $screen-tablet) {
+        width: 100%;
+    }
+}

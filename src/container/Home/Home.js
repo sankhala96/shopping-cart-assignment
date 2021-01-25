@@ -1,51 +1,73 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Component } from 'react';
 import './Home.scss';
 import { connect } from 'react-redux';
-import { fetchData } from "../../actions/index";
+import { fetchData, saveData } from "../../actions/index";
 import Carousel from "../../components/Carousel/Carousel";
 import Category from '../../components/Category/Category';
 import * as Constants from "../../global-constants";
 
-function Home(props) {
-    const [banners, setBanner] = useState([]);
-    const [categories, setCategories] = useState([])
+class Home extends Component {
+    constructor(props) {
+        super(props)
 
-    useEffect(() => {
-        props.fetchData(Constants.UrlBannersApi);
-        props.fetchData(Constants.UrlCategoriesApi);
-    }, []);
+        this.state = {
+            banners: [],
+            categories: []
+        }
+    }
 
-    useEffect(() => {
-        if(props.banners.length !== banners.length) {
-            setBanner(props.banners)
+    static getDerivedStateFromProps(props, state) {
+        if(props.banners.length !== state.banners.length) {
+            return { banners: props.banners }
         }
 
-        if(props.categories.length !== categories.length) {
-            setCategories(props.categories)
+        if(props.categories.length !== state.categories.length) {
+            return { categories: props.categories }
         }
-    }, [props.banners, props.categories])
 
-    return (
-        <div className="home">
-            <Carousel items={banners} screenSize={props.screenSize} />
-            <div className="home-container">
-                {categories.map((category, idx) => 
-                    {
-                        return(
-                            <Category category={category} imgAlign={(idx % 2) ? Constants.Right : Constants.Left}/>
-                        )
-                    }
-                )}
+        return null;
+    }
+
+    componentDidMount() {
+        this.props.fetchData(Constants.UrlBannersApi);
+        this.props.fetchData(Constants.UrlCategoriesApi);
+    }
+
+    onSelectCategory = (selectedCategory) => {
+        this.props.saveData(Constants.UrlSelectedCategory, selectedCategory);
+        this.props.history.push(`/${Constants.UrlPlp}`);
+    }
+
+    render() {
+        console.log('home  ', this.props.cart)
+        return (
+            <div className="home">
+                <Carousel items={this.state.banners} screenSize={this.props.screenSize} />
+                <div className="home-container">
+                    {this.state.categories.map((category, idx) => 
+                        {
+                            return(
+                                <Category 
+                                    key={category+idx}
+                                    category={category}
+                                    imgAlign={(idx % 2) ? Constants.Right : Constants.Left}
+                                    handleClick={ this.onSelectCategory }
+                                />
+                            )
+                        }
+                    )}
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
 const mapStateToProps = (state) => {
     return {
         categories: state.setData.categories,
-        banners: state.setData.banners
+        banners: state.setData.banners,
+        cart: state.setData.cart
     }
 }
 
-export default connect(mapStateToProps, { fetchData })(Home)
+export default connect(mapStateToProps, { fetchData, saveData })(Home)

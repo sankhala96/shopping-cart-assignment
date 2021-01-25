@@ -1,0 +1,103 @@
+@import "../../global-styles.scss";
+
+.griditem {
+  width: 24%;
+  margin: 2% 0 5% 1%;
+  border-bottom: 1px dotted;
+
+  &-heading {
+    font-weight: 900;
+    margin-bottom: 30%;
+    height: 30px;
+    padding-right: 5%;
+  }
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2%;
+
+    &-image {
+      max-width: 100%;
+    }
+
+    &-description {
+      text-align: left;
+      background-color: $color-grey-1;
+      padding: 1%;
+      font-size: 70%;
+      font-weight: 600;
+      height: 90px;
+      overflow: hidden;
+    }
+
+    &-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1% 2%;
+      margin: 2% 0;
+
+      &-text {
+        font-size: 60%;
+      }
+
+      &-button {
+        button {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $screen-laptop) {
+    .griditem {
+        width: 48%;
+
+        &-heading {
+            height: 10px;
+        }
+
+        &-container {
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            &-image {
+                max-width: 48%;
+            }
+
+            &-description {
+                max-width: 48%;
+                height: 150px;
+                overflow: hidden;
+            }
+
+            &-footer {
+                width: 100%;
+                margin: 2% 0;
+                padding: 0;
+
+                &-button {
+                    width: 100%;
+
+                    button {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: $screen-tablet) {
+    .griditem {
+        width: 100%;
+
+        &-heading {
+            height: auto;
+            margin-bottom: 2%;
+        }
+    }
+}

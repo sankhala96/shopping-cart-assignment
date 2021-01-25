@@ -4,10 +4,6 @@ import PinkButton from '../Buttons/PinkButton';
 import * as Constants from '../../global-constants';
 
 export default function Category(props) {
-
-    const handleClick = () => {
-
-    }
     return (
       <div className="category">
         {props.imgAlign === Constants.Left && (
@@ -20,7 +16,7 @@ export default function Category(props) {
         <div className="category-dec">
           <h3>{props.category.name}</h3>
           <p>{props.category.description}</p>
-          <PinkButton text={'Explore ' + props.category.key} handleClick={handleClick} />
+          <PinkButton text={'Explore ' + props.category.key} handleClick={() => props.handleClick(props.category)} />
         </div>
         {props.imgAlign === Constants.Right &&
         <img src={Constants.UrlPublic + props.category.imageUrl}
