@@ -45,11 +45,30 @@
         align-items: flex-end;
         margin-left: auto;
     }
+
+    &-mobile {
+        margin-left: 1%;
+
+        &-icon {
+            width: 25px;
+            height: 4px;
+            margin: 5% 0;
+            background-color: $color-black-2;
+            font-size: 0;
+        }
+
+        &-nav {
+            padding: 1%;
+            background-color: $color-grey-1;
+            width: 100%;
+        }
+    }
 }
 
 @media only screen and (max-width: $screen-laptop) {
      .header {
          width: 100%;
          padding: 0;
+         flex-wrap: wrap;
      }   
 }

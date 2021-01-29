@@ -9,6 +9,7 @@ export const UrlProductsApi = 'products';
 export const UrlLoginApi = 'login';
 export const UrlRegisterApi = 'register';
 export const UrlSelectedCategory = 'selectedCategory';
+export const UrlLogout = 'logout';
 export const UrlPlp = 'plp';
 export const UrlHome = 'home';
 export const UrlCart = 'cart';
@@ -30,6 +31,13 @@ export const SignMinus = '\u2212';
 export const SignMultiply = 'x';
 export const SignRightArrow = '>';
 export const SignAt = '@';
+
+//Error Messages
+export const ErrorRequired = 'Required';
+export const ErrorEmail = 'Invalid email address';
+export const ErrorPassword = 'Password should be minimum 6 characters long, alphanumeric and without spaces.';
+export const ErrorConfirmPassword = 'Password and Confirm Password must match';
+export const ErrorInvalid = 'Invalid';
 
 //Text
 export const MinWidth = 'min-width: ';
@@ -55,3 +63,12 @@ export const CartEmpty = 'No items in your cart!';
 export const CartEmptyFavItems = 'Your favourite items are just a click away';
 export const PromoCode = 'Promo code can be applied on payment page';
 export const TotalCartValue = 'Total cart value is ';
+export const Logout= 'Logout'
+export const RegisterTitle = 'Signup';
+export const LoginTitle = 'Login'
+export const LoginDescription = 'Get access to your Orders, Wishlist and Recommendations';
+export const RegisterDescription = 'We do not share your personal details with anyone.'
+export const Email = 'email';
+export const Password = 'password';
+export const ConfirmPassword = 'confirmPassword';
+export const Required = 'required';

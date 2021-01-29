@@ -29,6 +29,7 @@ export default function GridItem(props) {
               <PinkButton
                 text={Constants.BuyNow}
                 className="griditem-container-footer-pinkbutton"
+                ariaLabel={Constants.BuyNow + product.name + Constants.SignAt + Constants.INR + product.price}
                 handleClick={() => props.selectGridItem(product)}
               />
             ) : (

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Component } from 'react';
+import React, { Component } from 'react';
 import './Home.scss';
 import { connect } from 'react-redux';
 import { fetchData, saveData } from "../../actions/index";
@@ -39,7 +39,6 @@ class Home extends Component {
     }
 
     render() {
-        console.log('home  ', this.props.cart)
         return (
             <div className="home">
                 <Carousel items={this.state.banners} screenSize={this.props.screenSize} />

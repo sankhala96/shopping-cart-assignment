@@ -10,6 +10,8 @@ import PLP from "./container/PLP/PLP";
 import { connect } from "react-redux";
 import Cart from "./components/Cart/Cart";
 import BackDrop from "./components/BackDrop/BackDrop";
+import Register from "./container/Register/Register";
+import Login from "./container/Login/Login";
 
 class App extends React.Component {
   constructor(props) {
@@ -103,7 +105,7 @@ class App extends React.Component {
           screenSize={this.state.screenSize}
           openCart={this.openCart}
         />
-        <div className="app-container">
+        <div className="app-container" tabIndex={this.state.isDrawerOpen ? '-1' : '0'}>
           <Switch>
             <Route
               exact
@@ -131,6 +133,20 @@ class App extends React.Component {
               path={`/${Constants.UrlCart}`}
               render={(props) => (
                 <Cart {...props} screenSize={this.state.screenSize} />
+              )}
+            />
+            <Route
+              exact
+              path={`/${Constants.UrlRegisterApi}`}
+              render={(props) => (
+                <Register {...props} />
+              )}
+            />
+            <Route
+              exact
+              path={`/${Constants.UrlLoginApi}`}
+              render={(props) => (
+                <Login {...props} />
               )}
             />
           </Switch>

@@ -9,17 +9,18 @@
 
     &-lis,&-item {
         display: inline-block;
+        margin-right: 0.2em;
     }
 
     &-button {
         display: inline-block;
-        width: 0.5rem;
-        height: 0.5rem;
-        background-color: $color-grey-4;;
-        background-clip: content-box;
+        width: 0.6rem;
+        height: 0.6rem;
+        background-color: $color-grey-4;
         border: 0.25rem solid transparent;
         border-radius: 50%;
         font-size: 0;
+        padding: 0.5em;
         transition: transform 0.1s;
 
         &-active {

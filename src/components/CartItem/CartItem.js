@@ -5,7 +5,7 @@ import * as Constants from "../../global-constants";
 
 export default function CartItem(props) {
   return (
-    <figure className="cartitem">
+    <figure className="cartitem" tabIndex="0">
       <div className="cartitem-image">
         <img
           src={Constants.UrlPublic + props.cartItem.imageURL}

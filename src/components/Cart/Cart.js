@@ -12,6 +12,7 @@ class Cart extends Component {
 
     this.state = {
       cart: props.cart,
+      closeCartTabIndex: '-1'
     };
   }
 
@@ -65,7 +66,6 @@ class Cart extends Component {
   };
 
   render() {
-    console.log(this.state.cart);
     const cartKeys = Object.keys(this.state.cart);
     const totalItems = cartKeys.reduce(
       (totalItems, cartItem) => this.props.cart[cartItem].quantity + totalItems,
@@ -78,7 +78,7 @@ class Cart extends Component {
       0
     );
     return (
-      <main className="cart">
+      <main className="cart" tabIndex="0">
         <div className="cart-header">
           <div>
             <span className="cart-header-my-cart">{Constants.MyCart}</span>
@@ -92,6 +92,7 @@ class Cart extends Component {
           {this.props.screenSize === Constants.ScreenLaptop && <span
             className="cart-header-icon-close"
             onClick={this.props.closeCart}
+            tabIndex={this.state.closeCartTabIndex}
           >
             &#10006;
           </span>}
@@ -158,6 +159,7 @@ class Cart extends Component {
             ariaLabel={(cartKeys.length > 0)
               ? Constants.TotalCartValue + Constants.INR + totatlPrice + '. ' + Constants.Checkout + '.'
               : ''}
+              handleFocus={() => this.setState({closeCartTabIndex: '0'})}
             />
         </div>
       </main>

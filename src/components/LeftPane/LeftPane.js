@@ -14,7 +14,7 @@ export default function LeftPane(props) {
               }
               onClick={() => props.updateSelectedCategory(cat)}
             >
-              {cat.name}
+              <button>{cat.name}</button>
             </li>
           );
         })}

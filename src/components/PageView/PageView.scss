@@ -1,0 +1,22 @@
+@import '../../global-styles.scss';
+
+.page-view {
+    display: flex;
+    justify-content: center;
+    padding-top: 3%;
+
+    &-desc {
+        margin-right: 5%;
+
+        p {
+            font-size: 70%;
+            font-weight: 600;
+        }
+    }
+
+    @media only screen and (max-width: $screen-tablet) {
+        &-desc {
+            margin-left: 5%;
+        }
+    }
+}

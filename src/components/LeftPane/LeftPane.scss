@@ -15,6 +15,10 @@
         padding: 4% 10%;
         border-bottom: 1px solid $color-grey-2;
         cursor: pointer;
+
+        button {
+            border: none;
+        }
     }
 
     .selected-item {

@@ -2,7 +2,7 @@ import axios from "axios";
 import * as Constants from '../global-constants';
 import {
     SET_CATEGORIES, SET_BANNERS, SET_PRODUCTS, SET_CART,
-    SET_LOGIN_STATUS, SET_CART_STATUS, SET_REGISTER_STATUS, SET_SELECTED_CATEGORY
+    SET_LOGIN_STATUS, SET_CART_STATUS, SET_REGISTER_STATUS, SET_SELECTED_CATEGORY, SET_LOGOUT_STATUS
 } from './types';
 
 export const setBanners = (banner) => {
@@ -37,6 +37,18 @@ export const setCartStatus = (res, data) => {
     return { type: SET_CART_STATUS, payload: res }
 }
 
+export function setLoginStatus(prod) {
+    return { type: SET_LOGIN_STATUS, payload: prod };
+}
+
+export function setRegisterStatus(prod) {
+    return { type: SET_REGISTER_STATUS, payload: prod };
+}
+
+export function setLogout() {
+    return { type: SET_LOGOUT_STATUS }
+}
+
 const config = {
     headers: {
         'Accept': 'application/json'
@@ -68,6 +80,8 @@ export const postData = (url, data) => {
             const response = await axios.post(Constants.UrlServer + url, data, config);
             switch (url) {
                 case Constants.UrlCartApi: dispatch(setCartStatus(response, data)); break;
+                case Constants.UrlRegisterApi: dispatch(setRegisterStatus(response.status)); break;
+                case Constants.UrlLoginApi: dispatch(setLoginStatus(response.status)); break;
                 default: break;
             }
         }
@@ -82,6 +96,7 @@ export const saveData = (key, value) => {
         try {
             switch(key) {
                 case Constants.UrlSelectedCategory: dispatch(setSelectedCategory(value)); break;
+                case Constants.UrlLogout: dispatch(setLogout()); break;
                 default: break;
             }
         }

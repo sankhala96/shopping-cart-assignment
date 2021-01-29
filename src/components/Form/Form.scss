@@ -1,0 +1,50 @@
+@import '../../global-styles.scss';
+
+form {
+
+    margin-right: 8%;
+    width: 25%;
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10%;
+        color: $color-grey-4;
+
+        label {
+            font-size: 60%;
+        }
+
+        input {
+            border: none;
+            border-bottom: 1px solid $color-grey-4;
+            padding: 0.5em 0;
+        }
+
+        input:focus {
+            outline: none;
+            border-bottom: 2px solid $color-pink-1;
+        }
+
+        p {
+            font-size: 70%;
+            color: red;
+            margin: 0;
+        }
+
+        &-active {
+            label {
+                color: $color-pink-1;
+            }
+        }
+    }
+
+    .button-pink {
+        width: 100%;
+        justify-content: center;
+    }
+
+    @media only screen and(max-width: $screen-tablet) {
+        width: 80%
+    }
+}
