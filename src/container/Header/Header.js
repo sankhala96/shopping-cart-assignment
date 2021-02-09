@@ -70,12 +70,13 @@ class Header extends React.Component {
             <div className="header-mobile-icon">3</div>
           </div>
         )}
+        <a href="/">
         <img
           src={Constants.UrlPublic + Constants.ImgLogo}
           alt="logo"
           className="header-logo"
-          onClick={() => this.props.history.push("/")}
         ></img>
+        </a>
         {(this.props.screenSize === Constants.ScreenLaptop ||
           this.props.screenSize === Constants.ScreenTablet) && (
           <nav className="header-nav">

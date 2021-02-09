@@ -6,7 +6,7 @@ import * as Constants from "../../global-constants";
 export default function GridItem(props) {
   const product = props.product;
   return (
-    <figure className="griditem">
+    <figure className="griditem" tabIndex='0'>
       <figcaption className="griditem-heading">{product.name}</figcaption>
       <div className="griditem-container">
         <img

@@ -105,7 +105,7 @@ class App extends React.Component {
           screenSize={this.state.screenSize}
           openCart={this.openCart}
         />
-        <div className="app-container" tabIndex={this.state.isDrawerOpen ? '-1' : '0'}>
+        <div className="app-container">
           <Switch>
             <Route
               exact

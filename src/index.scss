@@ -1,11 +1,14 @@
 @import './global-styles.scss';
 
+html {
+  font-size: 20px;
+}
+
 body {
   margin: 0;
   font-family: $font-family-dosis;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 20px;
   text-rendering: optimizeLegibility;
 }
 

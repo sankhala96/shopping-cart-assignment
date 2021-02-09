@@ -19,18 +19,18 @@
         align-items: center;
 
         p {
-            font-size: 75%;
+            font-size: 0.75rem;
             font-weight: 600;
         }
     }
 
     @media only screen and (max-width: $screen-tablet) {
         h3 {
-            font-size: 80%;
+            font-size: 0.80rem;
         }
 
         p {
-            font-size: 65%;
+            font-size: 0.65rem;
         }
     }
 }
