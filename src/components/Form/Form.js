@@ -53,7 +53,7 @@ class Form extends React.Component {
 
     render() {
         return (
-            <form autoComplete="off" aria-labelledby="form-title">
+            <form autoComplete="off" aria-labelledby="form-title" method="post" action="#">
               {this.props.formInputs.map((formInput, idx) => {
                 return (
                   <div key={formInput.name + idx} className={`form-group${this.state.active === formInput.name ? ' form-group-active': ''}`}>
@@ -75,7 +75,9 @@ class Form extends React.Component {
                   </div>
                 );
               })}
-              <PinkButton ariaLabel={this.props.btnText} text={this.props.btnText} type='submit' handleClick={this.handleSubmit} />
+              <PinkButton ariaLabel={this.props.btnText} type='submit' handleClick={this.handleSubmit} >
+                {this.props.btnText}
+              </PinkButton>
             </form>
         )
     }

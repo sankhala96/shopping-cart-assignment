@@ -149,18 +149,17 @@ class Cart extends Component {
               {Constants.PromoCode}
             </div>
           )}
-          <PinkButton className='cart-pinkbutton' handleClick={this.cartSubmit}
-            text={(cartKeys.length > 0)
-              ? Constants.Checkout
-              : Constants.StartShopping}
-            rightContent={(cartKeys.length > 0)
-              ? Constants.INR + totatlPrice + ' ' + Constants.SignRightArrow
-              : ''}
+          <PinkButton
+            className='cart-pinkbutton button-pink--space-between' 
+            handleClick={this.cartSubmit}
             ariaLabel={(cartKeys.length > 0)
               ? Constants.TotalCartValue + Constants.INR + totatlPrice + '. ' + Constants.Checkout + '.'
               : ''}
               handleFocus={() => this.setState({closeCartTabIndex: '0'})}
-            />
+            >
+              <span>{(cartKeys.length > 0) ? Constants.Checkout : Constants.StartShopping}</span>
+              {(cartKeys.length > 0) && <span>{Constants.INR + totatlPrice + ' ' + Constants.SignRightArrow}</span>}
+            </PinkButton>
         </div>
       </main>
     );
@@ -170,6 +169,7 @@ class Cart extends Component {
 const mapStateToProps = (state) => {
   return {
     cart: state.setData.cart,
+    screenSize: state.setData.screenSize
   };
 };
 

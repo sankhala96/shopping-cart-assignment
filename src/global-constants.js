@@ -13,6 +13,7 @@ export const UrlLogout = 'logout';
 export const UrlPlp = 'plp';
 export const UrlHome = 'home';
 export const UrlCart = 'cart';
+export const UrlScreenSize = 'screenSize'
 
 //Screen Size
 export const ScreenLaptop = '1025px';
@@ -54,6 +55,7 @@ export const SelectCategory = 'Select Category';
 export const MyCart = 'My Cart';
 export const Item = 'Item';
 export const Checkout = 'Proceed to Checkout';
+export const SabkaBazarTitle = 'Sabka Bazar'
 export const StartShopping = 'Start Shopping';
 export const ReduceQuantity = 'Reduce quantity';
 export const IncreaseQuantity = 'Increase quantity';

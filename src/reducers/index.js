@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { SET_BANNERS, SET_CART, SET_CART_STATUS, SET_CATEGORIES, SET_PRODUCTS, SET_SELECTED_CATEGORY, SET_LOGIN_STATUS, SET_REGISTER_STATUS, SET_LOGOUT_STATUS } from '../actions/types';
+import { SET_BANNERS, SET_CART, SET_CART_STATUS, SET_CATEGORIES, SET_PRODUCTS, SET_SELECTED_CATEGORY, SET_LOGIN_STATUS, SET_REGISTER_STATUS, SET_LOGOUT_STATUS, SET_SCREEN_SIZE } from '../actions/types';
 
 const initialState = {
     categories: [],
@@ -9,7 +9,8 @@ const initialState = {
     registerStatus: '',
     loginStatus: '',
     cartStatus: '',
-    selectedCategory: {}
+    selectedCategory: {},
+    screenSize: ''
 }
 
 function setData(state = initialState, action) {
@@ -34,6 +35,8 @@ function setData(state = initialState, action) {
         });
         case SET_LOGOUT_STATUS:
             return {...state, loginStatus: '', registerStatus: ''}
+        case SET_SCREEN_SIZE: 
+            return { ...state, screenSize: action.payload }
         default:
             return state
     }

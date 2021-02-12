@@ -16,7 +16,9 @@ export default function Category(props) {
         <div className="category-dec">
           <h3>{props.category.name}</h3>
           <p>{props.category.description}</p>
-          <PinkButton text={'Explore ' + props.category.key} handleClick={() => props.handleClick(props.category)} />
+          <PinkButton handleClick={() => props.handleClick(props.category)} >
+            {'Explore ' + props.category.key}
+          </PinkButton>
         </div>
         {props.imgAlign === Constants.Right &&
         <img src={Constants.UrlPublic + props.category.imageUrl}

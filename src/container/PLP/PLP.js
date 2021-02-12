@@ -113,7 +113,8 @@ const mapStateToProps = (state) => {
     categories: state.setData.categories,
     products: state.setData.products,
     selectedCategory: state.setData.selectedCategory,
-    cart: state.setData.cart
+    cart: state.setData.cart,
+    screenSize: state.setData.screenSize
   };
 };
 

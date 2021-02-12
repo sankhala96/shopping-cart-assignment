@@ -27,24 +27,19 @@ export default function GridItem(props) {
           <div className="griditem-container-footer-button">
             {props.screenSize === Constants.ScreenLaptop ? (
               <PinkButton
-                text={Constants.BuyNow}
                 className="griditem-container-footer-pinkbutton"
                 ariaLabel={Constants.BuyNow + product.name + Constants.SignAt + Constants.INR + product.price}
                 handleClick={() => props.selectGridItem(product)}
-              />
+              >
+                {Constants.BuyNow}
+              </PinkButton>
             ) : (
               <PinkButton
-                text={
-                  Constants.BuyNow +
-                  " " +
-                  Constants.SignAt +
-                  " " +
-                  Constants.INR +
-                  product.price
-                }
                 className="griditem-container-footer-pinkbutton"
                 handleClick={() => props.selectGridItem(product)}
-              />
+              >
+                { Constants.BuyNow + " " + Constants.SignAt + " " + Constants.INR + product.price }
+              </PinkButton>
             )}
           </div>
         </div>

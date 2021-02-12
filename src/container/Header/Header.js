@@ -70,12 +70,12 @@ class Header extends React.Component {
             <div className="header-mobile-icon">3</div>
           </div>
         )}
-        <a href="/">
-        <img
-          src={Constants.UrlPublic + Constants.ImgLogo}
-          alt="logo"
-          className="header-logo"
-        ></img>
+        <a href="/" title={Constants.SabkaBazarTitle}>
+          <img
+            src={Constants.UrlPublic + Constants.ImgLogo}
+            alt="logo"
+            className="header-logo"
+          ></img>
         </a>
         {(this.props.screenSize === Constants.ScreenLaptop ||
           this.props.screenSize === Constants.ScreenTablet) && (
@@ -143,7 +143,8 @@ class Header extends React.Component {
 const mapStateToProps = state => {
   return {
     loginStatus: state.setData.loginStatus,
-    registerStatus: state.setData.registerStatus
+    registerStatus: state.setData.registerStatus,
+    screenSize: state.setData.screenSize
   }
 }
 

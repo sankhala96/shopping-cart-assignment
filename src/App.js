@@ -12,6 +12,7 @@ import Cart from "./components/Cart/Cart";
 import BackDrop from "./components/BackDrop/BackDrop";
 import Register from "./container/Register/Register";
 import Login from "./container/Login/Login";
+import { saveData } from './actions/index';
 
 class App extends React.Component {
   constructor(props) {
@@ -39,6 +40,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    this.props.saveData(Constants.UrlScreenSize, this.state.screenSize)
     window.addEventListener("resize", this.handleResize);
   }
 
@@ -70,6 +72,7 @@ class App extends React.Component {
           this.toggleDrawer(true)(event);
           this.props.history.goBack();
         }
+        this.props.saveData(Constants.UrlScreenSize, this.state.screenSize)
       }
     );
   };
@@ -102,7 +105,6 @@ class App extends React.Component {
             (totalItems, cartItem) => this.props.cart[cartItem].quantity + totalItems,
             0
           )}
-          screenSize={this.state.screenSize}
           openCart={this.openCart}
         />
         <div className="app-container">
@@ -111,28 +113,28 @@ class App extends React.Component {
               exact
               path="/"
               render={(props) => (
-                <Home {...props} screenSize={this.state.screenSize} />
+                <Home {...props} />
               )}
             />
             <Route
               exact
               path={`/${Constants.UrlHome}`}
               render={(props) => (
-                <Home {...props} screenSize={this.state.screenSize} />
+                <Home {...props} />
               )}
             />
             <Route
               exact
               path={`/${Constants.UrlPlp}`}
               render={(props) => (
-                <PLP {...props} screenSize={this.state.screenSize} />
+                <PLP {...props} />
               )}
             />
             <Route
               exact
               path={`/${Constants.UrlCart}`}
               render={(props) => (
-                <Cart {...props} screenSize={this.state.screenSize} />
+                <Cart {...props} />
               )}
             />
             <Route
@@ -150,7 +152,7 @@ class App extends React.Component {
               )}
             />
           </Switch>
-          {this.state.isDrawerOpen && <Cart closeCart={this.toggleDrawer(false)} screenSize={this.state.screenSize} />}
+          {this.state.isDrawerOpen && <Cart closeCart={this.toggleDrawer(false)} />}
         </div>
         <Footer />
         {this.state.isDrawerOpen && <BackDrop onClick={this.toggleDrawer(false)} />}
@@ -165,4 +167,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default withRouter(connect(mapStateToProps, null)(App));
+export default withRouter(connect(mapStateToProps, { saveData })(App));

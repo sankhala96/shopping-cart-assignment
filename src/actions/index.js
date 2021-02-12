@@ -2,7 +2,7 @@ import axios from "axios";
 import * as Constants from '../global-constants';
 import {
     SET_CATEGORIES, SET_BANNERS, SET_PRODUCTS, SET_CART,
-    SET_LOGIN_STATUS, SET_CART_STATUS, SET_REGISTER_STATUS, SET_SELECTED_CATEGORY, SET_LOGOUT_STATUS
+    SET_LOGIN_STATUS, SET_CART_STATUS, SET_REGISTER_STATUS, SET_SELECTED_CATEGORY, SET_LOGOUT_STATUS, SET_SCREEN_SIZE
 } from './types';
 
 export const setBanners = (banner) => {
@@ -47,6 +47,13 @@ export function setRegisterStatus(prod) {
 
 export function setLogout() {
     return { type: SET_LOGOUT_STATUS }
+}
+
+export function setScreenSize(value) {
+    return {
+        type: SET_SCREEN_SIZE,
+        payload: value
+    }
 }
 
 const config = {
@@ -95,6 +102,7 @@ export const saveData = (key, value) => {
     return async (dispatch) => {
         try {
             switch(key) {
+                case Constants.UrlScreenSize: dispatch(setScreenSize(value)); break;
                 case Constants.UrlSelectedCategory: dispatch(setSelectedCategory(value)); break;
                 case Constants.UrlLogout: dispatch(setLogout()); break;
                 default: break;

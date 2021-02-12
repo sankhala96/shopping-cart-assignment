@@ -31,17 +31,19 @@ export default function CartItem(props) {
         <div className="cartitem-quantity">
           <PinkButton
             className="cartitem-pinkbutton"
-            text={Constants.SignMinus}
             handleClick={() => props.reduceQuantity(props.cartItem)}
             ariaLabel={Constants.ReduceQuantity}
-          />
+          >
+            {Constants.SignMinus}
+          </PinkButton>
           <span>{props.cartItem.quantity}</span>
           <PinkButton
             className="cartitem-pinkbutton"
-            text={Constants.SignPlus}
             handleClick={() => props.addQuantity(props.cartItem)}
             ariaLabel={Constants.IncreaseQuantity}
-          />
+          >
+            {Constants.SignPlus}
+          </PinkButton>
           <span>{Constants.SignMultiply}</span>
           <span>{Constants.INR + props.cartItem.price}</span>
         </div>

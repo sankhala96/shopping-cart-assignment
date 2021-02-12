@@ -65,7 +65,8 @@ const mapStateToProps = (state) => {
     return {
         categories: state.setData.categories,
         banners: state.setData.banners,
-        cart: state.setData.cart
+        cart: state.setData.cart,
+        screenSize: state.setData.screenSize
     }
 }
 
